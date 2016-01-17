@@ -25,7 +25,8 @@
 				<h3>Content</h3>
 				<p>
 					Events Test Page
-					<button onclick="window.plugins.toast.showShortTop('Hello there!', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})">Toast showShortTop</button>
+					<button id="btnClick" >Toast Me</button>
+					<button id="btnClickHello" >Toast Hello</button>
 
 				</p>
 			</div>
@@ -46,9 +47,23 @@
 		document.addEventListener("pause", onPause, false);
 		document.addEventListener("resume", onResume, false);
 		//alert("Device is Ready");
-		toast.show('Hello!', 'long', 'center')
-	}
+		
+		//window.plugins.toast.showShortTop('Hello there!', function(a){console.log('toast success: ' + a)}, function(a){alert('toast error: ' + a)})
+	
+		
+		$( "#btnClick" ).bind( "click", function(event, ui) {
+				window.plugins.toast.showShortTop('Toast Me!', function(a){console.log('toast success: ' + a)}, function(a){alert('toast error: ' + a)});
 
+		});
+		
+		$( "#btnClickHello" ).bind( "click", function(event, ui) {
+				window.plugins.toast.showLongCenter('This is a big HELLO!!');
+		});
+	}
+//https://build.phonegap.com/plugins/740
+//https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin/tree/720f87abc865ad836e097101dbfc2af7bdf8fca7
+//http://www.x-services.nl/phonegap-toast-plugin/796
+//http://hollyschinsky.github.io/ConferenceTracker/toast.html
 
 //What to do when paused
 function onPause(){
